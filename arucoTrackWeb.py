@@ -19,20 +19,50 @@ def create_pipeline():
     cam.setInterleaved(False)
     cam.setFps(30)
     
-    # Create output node
-    xout = pipeline.createXLinkOut()
-    xout.setStreamName("preview")
-    cam.preview.link(xout.input)
+    # Create stereo depth node
+    monoLeft = pipeline.createMonoCamera()
+    monoRight = pipeline.createMonoCamera()
+    stereo = pipeline.createStereoDepth()
+    spatialCalculator = pipeline.createSpatialLocationCalculator()
+    
+    monoLeft.setResolution(dai.MonoCameraProperties.SensorResolution.THE_400_P)
+    monoRight.setResolution(dai.MonoCameraProperties.SensorResolution.THE_400_P)
+    monoLeft.setCamera("left")
+    monoRight.setCamera("right")
+    stereo.setDefaultProfilePreset(dai.node.StereoDepth.PresetMode.HIGH_DENSITY)
+    stereo.setSubpixel(True)  # Improves depth precision
+    
+    # Configure spatial location calculator
+    spatialCalculator.inputConfig.setWaitForMessage(False)
+    config = dai.SpatialLocationCalculatorConfigData()
+    config.roi = dai.Rect(dai.Point2f(0, 0), dai.Point2f(1, 1))  # Default ROI for initialization
+    spatialCalculator.initialConfig.addROI(config)
+    
+    # Output and input nodes
+    xoutColor = pipeline.createXLinkOut()
+    xoutSpatialData = pipeline.createXLinkOut()
+    xinSpatialCalcConfig = pipeline.createXLinkIn()
+    xoutColor.setStreamName("preview")
+    xoutSpatialData.setStreamName("spatialData")
+    xinSpatialCalcConfig.setStreamName("spatialCalcConfig")
+    
+    # Linking
+    cam.preview.link(xoutColor.input)
+    monoLeft.out.link(stereo.left)
+    monoRight.out.link(stereo.right)
+    stereo.depth.link(spatialCalculator.inputDepth)
+    spatialCalculator.out.link(xoutSpatialData.input)
+    xinSpatialCalcConfig.out.link(spatialCalculator.inputConfig)
     
     return pipeline
 
 async def websocket_server():
-    async def send_tracking_data(websocket, path):
+    async def send_tracking_data(websocket):
         try:
             while True:
                 if not tracking_queue.empty():
                     data = tracking_queue.get()
-                    message = f"x:{data['x']:.6f},y:{data['y']:.6f},z:{data['z']:.6f},rx:{data['rx']:.6f},ry:{data['ry']:.6f},rz:{data['rz']:.6f}"
+                    message = f"id:{data['id']},x:{data['x']:.6f},y:{data['y']:.6f},z:{data['z']:.6f},rx:{data['rx']:.6f},ry:{data['ry']:.6f},rz:{data['rz']:.6f}"
                     print(f"Sending: {message}")
                     await websocket.send(message)
         except websockets.exceptions.ConnectionClosed:
@@ -51,9 +81,12 @@ def main():
     aruco_params = cv2.aruco.DetectorParameters_create()
     
     # Initialize device
-    device = dai.Device()
     pipeline = create_pipeline()
-    device.startPipeline(pipeline)
+    device = dai.Device(pipeline)
+
+    preview_queue = device.getOutputQueue("preview", maxSize=1, blocking=False)
+    spatial_data_queue = device.getOutputQueue("spatialData", maxSize=1, blocking=False)
+    spatial_calc_config_in_queue = device.getInputQueue("spatialCalcConfig")
 
     # Start WebSocket server in a separate thread
     websocket_thread = threading.Thread(target=run_websocket_server, daemon=True)
@@ -64,9 +97,6 @@ def main():
     
     camera_matrix = np.array(calib_data.getCameraIntrinsics(rgb_camsocket, 1920, 1080))
     dist_coeffs = np.array(calib_data.getDistortionCoefficients(rgb_camsocket)[:5]).reshape((1,5))
-    
-    # Get output queue
-    preview_queue = device.getOutputQueue("preview", maxSize=1, blocking=False)
     
     while True:
         preview_frame = preview_queue.get()
@@ -93,10 +123,27 @@ def main():
                 euler_angles = r.as_euler('xyz', degrees=True)
                 
                 # Get marker position
-                marker_position = tvec[0][0]
+                roi = corners[i][0]
+                x_min, y_min = roi[:, 0].min() / frame.shape[1], roi[:, 1].min() / frame.shape[0]
+                x_max, y_max = roi[:, 0].max() / frame.shape[1], roi[:, 1].max() / frame.shape[0]
+                
+                # Configure spatial location
+                roi_config = dai.SpatialLocationCalculatorConfigData()
+                roi_config.roi = dai.Rect(dai.Point2f(x_min, y_min), dai.Point2f(x_max, y_max))
+                
+                spatial_calc_config = dai.SpatialLocationCalculatorConfig()
+                spatial_calc_config.addROI(roi_config)
+                spatial_calc_config_in_queue.send(spatial_calc_config)
+                
+                # Get spatial data
+                spatial_data = spatial_data_queue.get().getSpatialLocations()
+                if spatial_data:
+                    loc = spatial_data[0].spatialCoordinates
+                    marker_position = (loc.x / 1000, loc.y / 1000, loc.z / 1000)  # Convert to meters
                 
                 # Send data to WebSocket queue
                 tracking_data = {
+                    'id': ids[i][0],
                     'x': marker_position[0],
                     'y': marker_position[1],
                     'z': marker_position[2],
