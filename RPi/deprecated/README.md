@@ -12,7 +12,7 @@ Current approach runs the DenseFusion model in the Raspberry Pi after loading it
 
 The conversion process can be difficult and our .pth and .blob files are not provided in this repo due to copyright considerations.
 
-when using the combination of the blob file, the DenseFusion model being ran externally proves too big of a bottleneck, conversion of it into blob to run in the edge device would be needed.
+when using the combination of the blob file, the DenseFusion model being ran externally proves too big of a bottleneck, conversion of it into blob to run in the edge device would be needed.  **It is assumed FullTracking.py or trackingDemo.py are both inside the DenseFusion repository as the blob conversion has not been done yet**
 
 Additionally, the current camera (OAK-D-LITE) has a bug in Luxonis issue #624 https://github.com/luxonis/depthai/issues/624 , where the current camera is capped at around 35 FPS although the sensor model can go to 60 FPS and does so in for example the OAK-D. 
 
