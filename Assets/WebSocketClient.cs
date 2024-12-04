@@ -18,8 +18,6 @@ public class WebSocketClient : MonoBehaviour
     private string logFilePath = "position_log.txt";
     private GameObject object1;
     private GameObject object2;
-    private Vector3[] trackerPositions = new Vector3[6];
-    private Vector3[] trackerRotations = new Vector3[6];
 
     
     async void Start()
@@ -90,8 +88,8 @@ public class WebSocketClient : MonoBehaviour
                     float ry = float.Parse(components[4].Split(':')[1]);
                     float rz = float.Parse(components[5].Split(':')[1]);
 
-                    Vector3 position = new Vector3(x, y, z);
-                    Vector3 rotation = new Vector3(rx, ry, rz);
+                    Vector3 position(x, y, z);
+                    Vector3 rotation(rx, ry, rz);
                 
                 if(id == 0) // 0 == user
                 {
@@ -115,10 +113,11 @@ public class WebSocketClient : MonoBehaviour
                 }
                 else if (id >= 2 && id <= 7)
                 {
+                    Vector3 truePosition = position - offset;
+                    UpdateObjectPosition(truePosition, rotation, object1);
+
                     int trackerIndex = id - 2;
-                    trackerPositions[trackerIndex] = new Vector3(x, y, z);
-                    trackerRotations[trackerIndex] = new Vector3(rx, ry, rz);
-                    Quaternion cubeRotation = CalculateCubeRotation();
+                    Quaternion cubeRotation = CalculateCubeRotation(trackerIndex, rotation);
                     object1.transform.rotation = cubeRotation;
 
                     Debug.Log($"Updated BOX1 to rotation: {cubeRotation.eulerAngles}");
@@ -135,23 +134,45 @@ public class WebSocketClient : MonoBehaviour
         }
     }
 
-    Quaternion CalculateCubeRotation()
+    /// <summary>
+    /// Handles multiple arUco ids on a single cube, assumes the following indexes are placed
+    /// in the following order 0 = Front, 1 = Back, 2 = Top, 3 = Bottom, 4 = Left, 5= Right
+    /// </summary>
+    /// <param name="trackerIndex"> integer between 0-6 </param>
+    /// <param name="rotation"> Vector3 with rotation of trackerIndex as given by </param>
+    /// <returns></returns>
+    Quaternion CalculateCubeRotation(int trackerIndex, Vector3 rotation)
     {
-        if (trackerPositions.Length < 6)
+        switch (trackerIndex)
         {
-            Debug.LogError("Not all tracker positions are available.");
-            return Quaternion.identity;
+        case 0:
+            // Do nothing
+            break;
+        
+        case 1:
+            rotation.y = rotation.y + 180;
+            break;
+
+        case 2:
+            rotation.x = rotation.x + 90;
+            break;
+
+        case 3:
+            rotation.x = rotation.x - 90;
+            break;
+
+        case 4:
+            rotation.y = rotation.y + 90;
+            break;
+
+        case 5:
+            rotation.y = rotation.y - 90;
+        
+        default:
+            Debug.LogError("Invalid trackerIndex sent to CalculateCubeRotation.");
+            break;
         }
 
-        // Example: Use two orthogonal vectors to define the cube's orientation
-        Vector3 upVector = (trackerPositions[4] - trackerPositions[5]).normalized;  // Top - Bottom
-        Vector3 forwardVector = (trackerPositions[0] - trackerPositions[1]).normalized;  // Front - Back
-
-        // Ensure orthogonality for precision
-        Vector3 rightVector = Vector3.Cross(upVector, forwardVector).normalized;
-        forwardVector = Vector3.Cross(rightVector, upVector).normalized;
-
-        // Build rotation from vectors
         return Quaternion.LookRotation(forwardVector, upVector);
     }
 
