@@ -88,8 +88,9 @@ public class WebSocketClient : MonoBehaviour
                     float ry = float.Parse(components[4].Split(':')[1]);
                     float rz = float.Parse(components[5].Split(':')[1]);
 
-                    Vector3 position(x, y, z);
-                    Vector3 rotation(rx, ry, rz);
+                    Vector3 position = new Vector3(x, y, z);
+                    Vector3 rotation = new Vector3(rx, ry, rz);
+
                 
                 if(id == 0) // 0 == user
                 {
@@ -167,13 +168,13 @@ public class WebSocketClient : MonoBehaviour
 
         case 5:
             rotation.y = rotation.y - 90;
-        
+            break; 
         default:
             Debug.LogError("Invalid trackerIndex sent to CalculateCubeRotation.");
             break;
         }
 
-        return Quaternion.LookRotation(forwardVector, upVector);
+        return Quaternion.Euler(rotation);
     }
 
     void UpdateObjectPosition(Vector3 position, Vector3 rotation, GameObject obj)
