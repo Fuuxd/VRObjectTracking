@@ -1,9 +1,9 @@
 using UnityEngine;
 using System;
+using System.Collections.Generic; // For Queue
 using System.Threading.Tasks;
 using NativeWebSocket;
 using System.IO;
-
 
 public class WebSocketClient : MonoBehaviour
 {
@@ -13,25 +13,37 @@ public class WebSocketClient : MonoBehaviour
     private KalmanFilterVector3 kalmanFilter;
     private Vector3 userPosition;
     private Vector3 offset = Vector3.zero;
-    //private string serverUrl = "ws://192.168.0.216:8080";
-    private string serverUrl = "ws://localhost:8080";
+    private string serverUrl = "ws://192.168.0.216:8080";
     private string logFilePath = "position_log.txt";
-    private GameObject object1;
-    private GameObject object2;
+    private GameObject box;
+    private GameObject user;
+    private GameObject bowl;
+    private long milliseconds;
 
+    // Sliding window for position smoothing (holds last 12 position updates)
+    private Queue<Vector3> positionQueue = new Queue<Vector3>();
+    private const int MaxQueueSize = 12;
+
+    // Sliding window for rotation smoothing (holds last 12 rotation updates)
+    private Queue<Vector3> rotationQueue = new Queue<Vector3>();
     
     async void Start()
     {
         Debug.Log($"Script started");
-        object1 = GameObject.Find("BOX1");
-        if (object1 == null)
+        box = GameObject.Find("BOX1");
+        if (box == null)
         {
             Debug.LogError("BOX1 not found in the scene. Please check the object name.");
         }
-        object2 = GameObject.Find("player");
-        if (object2 == null)
+        user = GameObject.Find("player");
+        if (user == null)
         {
             Debug.LogError("player not found in the scene. Please check the object name.");
+        }
+        bowl = GameObject.Find("bowl");
+        if (bowl == null)
+        {
+            Debug.LogError("bowl not found in the scene. Please check the object name.");
         }
 
         // Initialize the Kalman filter
@@ -81,46 +93,60 @@ public class WebSocketClient : MonoBehaviour
                 // Assuming data format includes ID at components[0] like "id:1,x:1.0,y:2.0,z:3.0"
                 int id = int.Parse(components[0].Split(':')[1]);
 
-                    float x = float.Parse(components[1].Split(':')[1]);
-                    float y = float.Parse(components[2].Split(':')[1]);
-                    float z = float.Parse(components[3].Split(':')[1]);
-                    float rx = float.Parse(components[3].Split(':')[1]);
-                    float ry = float.Parse(components[4].Split(':')[1]);
-                    float rz = float.Parse(components[5].Split(':')[1]);
+                float x = float.Parse(components[1].Split(':')[1]);
+                float y = float.Parse(components[2].Split(':')[1]);
+                float z = float.Parse(components[3].Split(':')[1]);
+                float rx = float.Parse(components[3].Split(':')[1]);
+                float ry = float.Parse(components[4].Split(':')[1]);
+                float rz = float.Parse(components[5].Split(':')[1]);
 
-                    Vector3 position = new Vector3(x, y, z);
-                    Vector3 rotation = new Vector3(rx, ry, rz);
+                Vector3 position = new Vector3(x, y, z);
+                Vector3 rotation = new Vector3(rx, ry, rz);
 
-                
-                if(id == 0) // 0 == user
+                // Sliding window filter for position (store and average last 12 positions)
+                if (positionQueue.Count >= MaxQueueSize)
+                {
+                    positionQueue.Dequeue(); // Remove the oldest value
+                }
+                positionQueue.Enqueue(position); // Add the new position
+
+                // Calculate the average position from the sliding window
+                Vector3 averagePosition = CalculateAveragePosition(positionQueue);
+
+                // Sliding window filter for rotation (store and average last 12 rotations)
+                if (rotationQueue.Count >= MaxQueueSize)
+                {
+                    rotationQueue.Dequeue(); // Remove the oldest value
+                }
+                rotationQueue.Enqueue(rotation); // Add the new rotation
+
+                // Calculate the average rotation from the sliding window
+                Vector3 averageRotation = CalculateAveragePosition(rotationQueue);
+
+                if (id == 0) // 0 == user
                 {
                     // Find offset between real-world position and Unity camera position
                     Vector3 cameraPosition = Camera.main.transform.position;
-                    offset = userPosition - cameraPosition;
+                    offset = position - cameraPosition;
 
-                    Debug.Log($"User Position: {userPosition}, Camera Position: {cameraPosition}, Offset: {offset}");
+                    Debug.Log($"User Position: {position}, Camera Position: {cameraPosition}, Offset: {offset}");
                 }
-                else if (id == 1) // 1 == object1
+                else if (id == 1) // 1 == box
                 {
-                    
-                    Vector3 truePosition = position - offset;
-                    // Apply Kalman filter to smooth position
-                    //Vector3 filteredPosition = kalmanFilter.Update(position, newQ: 0.05f, newR: 0.005f);
-                    // Update object position using the filtered position
-                    UpdateObjectPosition(truePosition, rotation, object1);
-                    //Vector3 filteredRotation = kalmanFilter.Update(rotation, newQ: 0.05f, newR: 0.005f);
-                    object1.transform.rotation = Quaternion.Euler(rotation.x, rotation.y, rotation.z);
-                    //LogPositionToFile(truePosition, rotation);
+                    Vector3 truePosition = averagePosition - offset;
+                    UpdateObjectPosition(truePosition, averageRotation, box);
                 }
-                else if (id >= 2 && id <= 7)
+                else if (id >= 2 && id <= 7 && ry >= 0)
                 {
-                    Vector3 truePosition = position - offset;
-                    UpdateObjectPosition(truePosition, rotation, object1);
+                    Vector3 truePosition = averagePosition - offset;
 
                     int trackerIndex = id - 2;
-                    Quaternion cubeRotation = CalculateCubeRotation(trackerIndex, rotation);
-                    object1.transform.rotation = cubeRotation;
+                    Quaternion cubeRotation = CalculateCubeRotation(trackerIndex, averageRotation);
 
+                    box.transform.position = truePosition;
+                    box.transform.rotation = cubeRotation;
+
+                    Debug.Log($"ID: {id}");
                     Debug.Log($"Updated BOX1 to rotation: {cubeRotation.eulerAngles}");
                 }
                 else
@@ -133,6 +159,21 @@ public class WebSocketClient : MonoBehaviour
                 Debug.LogError($"Error parsing message: {e.Message}");
             }
         }
+    }
+
+    /// <summary>
+    /// Calculate the average position from the sliding window queue
+    /// </summary>
+    /// <param name="queue">Queue containing the last n position updates</param>
+    /// <returns>Average position</returns>
+    Vector3 CalculateAveragePosition(Queue<Vector3> queue)
+    {
+        Vector3 sum = Vector3.zero;
+        foreach (var position in queue)
+        {
+            sum += position;
+        }
+        return sum / queue.Count;
     }
 
     /// <summary>
@@ -159,11 +200,11 @@ public class WebSocketClient : MonoBehaviour
             break;
 
         case 3:
-            rotation.x = rotation.x - 90;
+            rotation.x = rotation.x + 90;
             break;
 
         case 4:
-            rotation.y = rotation.y + 90;
+            rotation.y = rotation.y - 90;
             break;
 
         case 5:
@@ -181,8 +222,9 @@ public class WebSocketClient : MonoBehaviour
     {
         // Apply the new position directly to the object
         obj.transform.position = position;
-        obj.transform.rotation = Quaternion.Euler(rotation.x, rotation.y, rotation.z);
-        Debug.Log($"Object {obj.gameObject.name} updated to position: {obj.transform.position} and rotation: {obj.transform.rotation}");
+        obj.transform.rotation = Quaternion.Euler(rotation); // Use rotation here
+        milliseconds = DateTimeOffset.Now.ToUnixTimeMilliseconds();
+        Debug.Log($"Time: {milliseconds}, Object {obj.gameObject.name} updated to position: {obj.transform.position} and rotation: {obj.transform.rotation}");
     }
 
     void LogPositionToFile(Vector3 position, Vector3 rotation)
