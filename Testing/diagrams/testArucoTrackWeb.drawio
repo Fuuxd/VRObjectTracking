@@ -1,0 +1,214 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" version="25.0.3">
+  <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
+    <mxGraphModel dx="2625" dy="1393" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1654" math="0" shadow="0">
+      <root>
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
+        <mxCell id="xZQh680q4F_gPubxTn93-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="WIyWlLk6GJQsqaUBKTNV-3" target="xZQh680q4F_gPubxTn93-13" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="xZQh680q4F_gPubxTn93-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="WIyWlLk6GJQsqaUBKTNV-3" target="xZQh680q4F_gPubxTn93-12" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-3" value="&lt;span style=&quot;font-family: monospace;&quot;&gt;test_basic_connection&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="203" y="243" width="150" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="xZQh680q4F_gPubxTn93-28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="WIyWlLk6GJQsqaUBKTNV-7" target="xZQh680q4F_gPubxTn93-26" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="xZQh680q4F_gPubxTn93-29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="WIyWlLk6GJQsqaUBKTNV-7" target="xZQh680q4F_gPubxTn93-27" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-7" value="&lt;span style=&quot;font-family: monospace;&quot;&gt;test_connection_timeout&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="193" y="603" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="xZQh680q4F_gPubxTn93-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="WIyWlLk6GJQsqaUBKTNV-11" target="xZQh680q4F_gPubxTn93-20" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="xZQh680q4F_gPubxTn93-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="WIyWlLk6GJQsqaUBKTNV-11" target="xZQh680q4F_gPubxTn93-21" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-11" value="test_multiple_connections" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="203" y="413" width="150" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="xZQh680q4F_gPubxTn93-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="WIyWlLk6GJQsqaUBKTNV-12" target="xZQh680q4F_gPubxTn93-10" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="xZQh680q4F_gPubxTn93-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="WIyWlLk6GJQsqaUBKTNV-12" target="xZQh680q4F_gPubxTn93-0" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-12" value="&lt;span style=&quot;font-family: monospace;&quot;&gt;test_reconnection&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="233" y="73" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="xZQh680q4F_gPubxTn93-0" value="Edge Case:&lt;br&gt;&amp;nbsp;Overloaded/unavailable server fails to reconnect&amp;nbsp;" style="rounded=0;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="363" y="13" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="xZQh680q4F_gPubxTn93-5" value="TestWebSocketConnection" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="13" y="323" width="170" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="xZQh680q4F_gPubxTn93-10" value="Edge Case:&lt;br&gt;Reconnection attempt causes instability in the client-server connection." style="rounded=0;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="363" y="113" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="xZQh680q4F_gPubxTn93-12" value="Edge Case:&lt;br&gt;Connection accepted but server closes abruptly after initial connection" style="rounded=0;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="363" y="283" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="xZQh680q4F_gPubxTn93-13" value="Edge Case:&lt;br&gt;Websocket server not running / Wrong address" style="rounded=0;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="363" y="183" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="xZQh680q4F_gPubxTn93-20" value="Edge Case:&lt;br&gt;Server rejects, Connection limits exceeded" style="rounded=0;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="363" y="353" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="xZQh680q4F_gPubxTn93-21" value="Edge Case:&lt;br&gt;Connections not cleaned up, resource leaks,&lt;br&gt;Too many open sockets" style="rounded=0;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="363" y="453" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="xZQh680q4F_gPubxTn93-26" value="Edge Case:&lt;br&gt;Successful connection despite timeout settings, Longer delay for network issues&amp;nbsp;" style="rounded=0;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="363" y="523" width="140" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="xZQh680q4F_gPubxTn93-27" value="Edge Case:&lt;br&gt; Timeout occurs before connection is established" style="rounded=0;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="363" y="643" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="xZQh680q4F_gPubxTn93-31" value="" style="swimlane;startSize=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="3" y="3" width="510" height="710" as="geometry" />
+        </mxCell>
+        <mxCell id="xZQh680q4F_gPubxTn93-53" value="" style="swimlane;startSize=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="580" y="13" width="510" height="377" as="geometry" />
+        </mxCell>
+        <mxCell id="xZQh680q4F_gPubxTn93-45" value="&lt;h3&gt;&lt;span style=&quot;font-weight: normal;&quot;&gt;TestWebSocket&lt;br&gt;&lt;/span&gt;&lt;span style=&quot;font-weight: normal; background-color: initial; font-size: 12px;&quot;&gt;MessageExchange&lt;/span&gt;&lt;/h3&gt;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" parent="xZQh680q4F_gPubxTn93-53" vertex="1">
+          <mxGeometry x="15" y="146" width="170" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="xZQh680q4F_gPubxTn93-44" value="Edge Case:&lt;br&gt;Server sends an invalid or empty response (e.g., no &quot;id:&quot;, &quot;x:&quot;, or &quot;y:&quot; fields)." style="rounded=0;whiteSpace=wrap;html=1;" parent="xZQh680q4F_gPubxTn93-53" vertex="1">
+          <mxGeometry x="360" y="7" width="140" height="73" as="geometry" />
+        </mxCell>
+        <mxCell id="xZQh680q4F_gPubxTn93-43" value="test_message_format" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" parent="xZQh680q4F_gPubxTn93-53" vertex="1">
+          <mxGeometry x="230" y="80" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="xZQh680q4F_gPubxTn93-42" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="xZQh680q4F_gPubxTn93-53" source="xZQh680q4F_gPubxTn93-43" target="xZQh680q4F_gPubxTn93-44" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="xZQh680q4F_gPubxTn93-46" value="Edge Case:&lt;br&gt;Message format is incomplete or inconsistent due to a server bug." style="rounded=0;whiteSpace=wrap;html=1;" parent="xZQh680q4F_gPubxTn93-53" vertex="1">
+          <mxGeometry x="360" y="120" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="xZQh680q4F_gPubxTn93-41" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="xZQh680q4F_gPubxTn93-53" source="xZQh680q4F_gPubxTn93-43" target="xZQh680q4F_gPubxTn93-46" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="xZQh680q4F_gPubxTn93-48" value="Edge Case:&lt;br&gt; Messages are received out of order (e.g., network issues, server delay, or packet loss)." style="rounded=0;whiteSpace=wrap;html=1;" parent="xZQh680q4F_gPubxTn93-53" vertex="1">
+          <mxGeometry x="360" y="197" width="140" height="67" as="geometry" />
+        </mxCell>
+        <mxCell id="xZQh680q4F_gPubxTn93-34" value="test_message_order" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" parent="xZQh680q4F_gPubxTn93-53" vertex="1">
+          <mxGeometry x="200" y="264" width="150" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="xZQh680q4F_gPubxTn93-32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="xZQh680q4F_gPubxTn93-53" source="xZQh680q4F_gPubxTn93-34" target="xZQh680q4F_gPubxTn93-48" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="xZQh680q4F_gPubxTn93-47" value="Edge Case:&lt;br&gt;Messages are dropped entirely due to server issues or network failure." style="rounded=0;whiteSpace=wrap;html=1;" parent="xZQh680q4F_gPubxTn93-53" vertex="1">
+          <mxGeometry x="360" y="304" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="xZQh680q4F_gPubxTn93-33" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="xZQh680q4F_gPubxTn93-53" source="xZQh680q4F_gPubxTn93-34" target="xZQh680q4F_gPubxTn93-47" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="xZQh680q4F_gPubxTn93-70" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="xZQh680q4F_gPubxTn93-71" target="xZQh680q4F_gPubxTn93-72" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="xZQh680q4F_gPubxTn93-72" value="Edge case:&lt;br&gt;Network interruption happens while sending or receiving a message (partial message sent or received)." style="rounded=0;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="363" y="760" width="140" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="xZQh680q4F_gPubxTn93-76" value="" style="swimlane;startSize=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="3" y="750" width="510" height="390" as="geometry" />
+        </mxCell>
+        <mxCell id="xZQh680q4F_gPubxTn93-77" value="&lt;h3&gt;&lt;span style=&quot;font-weight: normal;&quot;&gt;TestWebSocket&lt;span style=&quot;font-size: 14.04px;&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-weight: normal; background-color: initial; font-size: 12px;&quot;&gt;ErrorHandling&lt;/span&gt;&lt;/h3&gt;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" parent="xZQh680q4F_gPubxTn93-76" vertex="1">
+          <mxGeometry x="15" y="146" width="170" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="xZQh680q4F_gPubxTn93-71" value="test_network_interruption" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" parent="xZQh680q4F_gPubxTn93-76" vertex="1">
+          <mxGeometry x="207" y="100" width="143" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="xZQh680q4F_gPubxTn93-73" value="Edge Case:&lt;div&gt;Server crashes on disconnect or network failure.&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="xZQh680q4F_gPubxTn93-76" vertex="1">
+          <mxGeometry x="360" y="140" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="xZQh680q4F_gPubxTn93-69" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="xZQh680q4F_gPubxTn93-76" source="xZQh680q4F_gPubxTn93-71" target="xZQh680q4F_gPubxTn93-73" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="j_1DW726Azh1ArcywRdL-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="xZQh680q4F_gPubxTn93-76" source="xZQh680q4F_gPubxTn93-68" target="xZQh680q4F_gPubxTn93-74">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="xZQh680q4F_gPubxTn93-68" value="test_malformed_message" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" parent="xZQh680q4F_gPubxTn93-76" vertex="1">
+          <mxGeometry x="200" y="280" width="150" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="xZQh680q4F_gPubxTn93-74" value="Edge Case:&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Malformed message leads to server or client crash.&lt;/span&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="xZQh680q4F_gPubxTn93-76" vertex="1">
+          <mxGeometry x="360" y="320" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="xZQh680q4F_gPubxTn93-75" value="Edge Case:&lt;br&gt;Server does not reject the malformed message and causes unexpected behavior." style="rounded=0;whiteSpace=wrap;html=1;" parent="xZQh680q4F_gPubxTn93-76" vertex="1">
+          <mxGeometry x="360" y="206" width="140" height="74" as="geometry" />
+        </mxCell>
+        <mxCell id="xZQh680q4F_gPubxTn93-66" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="xZQh680q4F_gPubxTn93-76" source="xZQh680q4F_gPubxTn93-68" target="xZQh680q4F_gPubxTn93-75" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="xZQh680q4F_gPubxTn93-78" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="xZQh680q4F_gPubxTn93-80" target="xZQh680q4F_gPubxTn93-94" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="xZQh680q4F_gPubxTn93-79" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="xZQh680q4F_gPubxTn93-80" target="xZQh680q4F_gPubxTn93-93" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="xZQh680q4F_gPubxTn93-80" value="test_throughput" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="785" y="820" width="150" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="xZQh680q4F_gPubxTn93-87" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="xZQh680q4F_gPubxTn93-89" target="xZQh680q4F_gPubxTn93-92" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="xZQh680q4F_gPubxTn93-88" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="xZQh680q4F_gPubxTn93-89" target="xZQh680q4F_gPubxTn93-90" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="xZQh680q4F_gPubxTn93-89" value="&lt;p&gt;test_message_latency&lt;/p&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="810" y="650" width="125" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="xZQh680q4F_gPubxTn93-90" value="Edge Case:&lt;br&gt;&amp;nbsp;Overloaded/unavailable server fails to reconnect&amp;nbsp;" style="rounded=0;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="945" y="590" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="xZQh680q4F_gPubxTn93-92" value="Edge Case:&lt;br&gt;Reconnection attempt causes instability in the client-server connection." style="rounded=0;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="945" y="690" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="xZQh680q4F_gPubxTn93-93" value="Edge Case:&lt;br&gt;Connection accepted but server closes abruptly after initial connection" style="rounded=0;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="945" y="860" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="xZQh680q4F_gPubxTn93-94" value="Edge Case:&lt;br&gt;Websocket server not running / Wrong address" style="rounded=0;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="945" y="760" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="xZQh680q4F_gPubxTn93-95" value="Edge Case:&lt;br&gt;Server rejects, Connection limits exceeded" style="rounded=0;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="945" y="930" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="xZQh680q4F_gPubxTn93-99" value="" style="swimlane;startSize=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="585" y="580" width="510" height="560" as="geometry" />
+        </mxCell>
+        <mxCell id="j_1DW726Azh1ArcywRdL-0" value="Edge Case: Server crashes or hangs due to excessive memory or CPU consumption." style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="xZQh680q4F_gPubxTn93-99">
+          <mxGeometry x="360" y="495" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="j_1DW726Azh1ArcywRdL-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="xZQh680q4F_gPubxTn93-99" source="xZQh680q4F_gPubxTn93-86" target="j_1DW726Azh1ArcywRdL-0">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="j_1DW726Azh1ArcywRdL-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="xZQh680q4F_gPubxTn93-99" source="xZQh680q4F_gPubxTn93-86" target="xZQh680q4F_gPubxTn93-96">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="xZQh680q4F_gPubxTn93-86" value="test_cpu_memory_usage" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" parent="xZQh680q4F_gPubxTn93-99" vertex="1">
+          <mxGeometry x="200" y="435" width="150" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="xZQh680q4F_gPubxTn93-96" value="Edge Case:&lt;br&gt;Connections not cleaned up, resource leaks,&lt;br&gt;Too many open sockets" style="rounded=0;whiteSpace=wrap;html=1;" parent="xZQh680q4F_gPubxTn93-99" vertex="1">
+          <mxGeometry x="360" y="425" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="xZQh680q4F_gPubxTn93-91" value="&lt;h3&gt;&lt;span style=&quot;font-weight: normal;&quot;&gt;TestWebSocket&lt;span style=&quot;font-size: 14.04px;&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-weight: normal; background-color: initial; font-size: 12px;&quot;&gt;Performance&lt;/span&gt;&lt;/h3&gt;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" parent="xZQh680q4F_gPubxTn93-99" vertex="1">
+          <mxGeometry x="10" y="260" width="170" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="j_1DW726Azh1ArcywRdL-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="xZQh680q4F_gPubxTn93-86" target="xZQh680q4F_gPubxTn93-95">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="j_1DW726Azh1ArcywRdL-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.445;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="xZQh680q4F_gPubxTn93-31" target="xZQh680q4F_gPubxTn93-53">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="j_1DW726Azh1ArcywRdL-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=1.002;entryY=0.106;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="xZQh680q4F_gPubxTn93-53" target="xZQh680q4F_gPubxTn93-76">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="j_1DW726Azh1ArcywRdL-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.651;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="xZQh680q4F_gPubxTn93-76" target="xZQh680q4F_gPubxTn93-99">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
