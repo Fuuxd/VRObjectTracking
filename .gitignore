@@ -1,0 +1,26 @@
+Library
+Logs
+Packages
+ProjectSettings
+UserSettings
+.vsconfig
+Aseembly-CSharp.csproj
+newtest.sln
+position_log.txt
+Unity.XR.Interaction.Toolkit.Samples.StarterAssets.csproj
+Unity.XR.Interaction.Toolkit.Samples.StarterAssets.Editor.csproj
+Assets/Samples
+Assets/Scenes
+Assets/Settings
+Assets/TextMesh Pro
+Assets/VRTemplateAssets
+Assets/XR
+Assets/XRI
+Samples.meta
+Scenes.meta
+Settings.meta
+TextMesh Pro.meta
+VRTemplateAssets.meta
+XR.meta
+XRI.meta
+Temp
