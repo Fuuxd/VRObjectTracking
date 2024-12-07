@@ -1,0 +1,60 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" version="25.0.3">
+  <diagram name="Page-1" id="cMfugRCo26rM0KV1FSLE">
+    <mxGraphModel dx="875" dy="435" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1654" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="eHt3yyKgxWMHG_R23Kva-87" value="Edge Case:&lt;br&gt;&amp;nbsp;Failure to connect to server" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="373" y="23" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="eHt3yyKgxWMHG_R23Kva-90" value="" style="swimlane;startSize=0;" vertex="1" parent="1">
+          <mxGeometry x="13" y="13" width="507" height="427" as="geometry" />
+        </mxCell>
+        <mxCell id="eHt3yyKgxWMHG_R23Kva-91" value="Edge Case:&lt;br&gt;&amp;nbsp;Failure to connect to server" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="eHt3yyKgxWMHG_R23Kva-90">
+          <mxGeometry x="360" y="216" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="eHt3yyKgxWMHG_R23Kva-92" value="TestWebSocketConnection" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="eHt3yyKgxWMHG_R23Kva-90">
+          <mxGeometry x="7" y="183.5" width="170" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="eHt3yyKgxWMHG_R23Kva-88" value="Assertion:&amp;nbsp;&lt;div&gt;Assert position and rotation match expected values&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="eHt3yyKgxWMHG_R23Kva-90">
+          <mxGeometry x="360" y="147" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="eHt3yyKgxWMHG_R23Kva-99" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="eHt3yyKgxWMHG_R23Kva-90" source="eHt3yyKgxWMHG_R23Kva-86" target="eHt3yyKgxWMHG_R23Kva-88">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eHt3yyKgxWMHG_R23Kva-101" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="eHt3yyKgxWMHG_R23Kva-90" source="eHt3yyKgxWMHG_R23Kva-86">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="360" y="107" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eHt3yyKgxWMHG_R23Kva-86" value="TestReceivedMessageFormat6DoF" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" vertex="1" parent="eHt3yyKgxWMHG_R23Kva-90">
+          <mxGeometry x="147" y="87" width="203" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="eHt3yyKgxWMHG_R23Kva-95" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="eHt3yyKgxWMHG_R23Kva-90" source="eHt3yyKgxWMHG_R23Kva-83" target="eHt3yyKgxWMHG_R23Kva-91">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eHt3yyKgxWMHG_R23Kva-105" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="eHt3yyKgxWMHG_R23Kva-90" source="eHt3yyKgxWMHG_R23Kva-83" target="eHt3yyKgxWMHG_R23Kva-103">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eHt3yyKgxWMHG_R23Kva-83" value="TestBasicConnection" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" vertex="1" parent="eHt3yyKgxWMHG_R23Kva-90">
+          <mxGeometry x="200" y="297" width="150" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="eHt3yyKgxWMHG_R23Kva-103" value="Failure Handling:&amp;nbsp;&lt;div&gt;Assert position and rotation match expected values; fail otherwise&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="eHt3yyKgxWMHG_R23Kva-90">
+          <mxGeometry x="360" y="287" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="eHt3yyKgxWMHG_R23Kva-104" value="Failure Handling:&amp;nbsp;&lt;div&gt;Assert that the client is connected; fail otherwise&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="eHt3yyKgxWMHG_R23Kva-90">
+          <mxGeometry x="360" y="77" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="eHt3yyKgxWMHG_R23Kva-89" value="Assertion:&amp;nbsp;&lt;div&gt;Assert client is connected&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="373" y="370" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="eHt3yyKgxWMHG_R23Kva-98" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="eHt3yyKgxWMHG_R23Kva-83" target="eHt3yyKgxWMHG_R23Kva-89">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eHt3yyKgxWMHG_R23Kva-100" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="eHt3yyKgxWMHG_R23Kva-86" target="eHt3yyKgxWMHG_R23Kva-87">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

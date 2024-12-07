@@ -1,0 +1,151 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" version="25.0.3">
+  <diagram name="Page-1" id="ius7pPTo3KnEySiAvIZj">
+    <mxGraphModel dx="789" dy="696" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1654" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="YPKyjbTizjw7uRKVG-_0-22" value="" style="swimlane;startSize=0;" vertex="1" parent="1">
+          <mxGeometry x="60" y="77" width="510" height="1500" as="geometry" />
+        </mxCell>
+        <mxCell id="YPKyjbTizjw7uRKVG-_0-84" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="YPKyjbTizjw7uRKVG-_0-22" source="YPKyjbTizjw7uRKVG-_0-3" target="YPKyjbTizjw7uRKVG-_0-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YPKyjbTizjw7uRKVG-_0-85" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="YPKyjbTizjw7uRKVG-_0-22" source="YPKyjbTizjw7uRKVG-_0-3" target="YPKyjbTizjw7uRKVG-_0-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YPKyjbTizjw7uRKVG-_0-87" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="YPKyjbTizjw7uRKVG-_0-22" source="YPKyjbTizjw7uRKVG-_0-3" target="YPKyjbTizjw7uRKVG-_0-70">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YPKyjbTizjw7uRKVG-_0-147" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="YPKyjbTizjw7uRKVG-_0-22" source="YPKyjbTizjw7uRKVG-_0-3" target="YPKyjbTizjw7uRKVG-_0-25">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YPKyjbTizjw7uRKVG-_0-3" value="test_basic_connection" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" vertex="1" parent="YPKyjbTizjw7uRKVG-_0-22">
+          <mxGeometry x="190" y="130" width="150" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="YPKyjbTizjw7uRKVG-_0-25" value="Edge Case:&lt;br&gt;Connection fails" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="YPKyjbTizjw7uRKVG-_0-22">
+          <mxGeometry x="360" y="150" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="YPKyjbTizjw7uRKVG-_0-15" value="&lt;div&gt;Assertion: Assert connection is open (websocket.open)&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="YPKyjbTizjw7uRKVG-_0-22">
+          <mxGeometry x="360" y="80" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YPKyjbTizjw7uRKVG-_0-13" value="&lt;div&gt;Action:&lt;br&gt;Connect to WebSocket server.&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="YPKyjbTizjw7uRKVG-_0-22">
+          <mxGeometry x="360" y="10" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YPKyjbTizjw7uRKVG-_0-70" value="&lt;span style=&quot;background-color: initial;&quot;&gt;Failure Handling: Fail if not connected.&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="YPKyjbTizjw7uRKVG-_0-22">
+          <mxGeometry x="360" y="200" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="YPKyjbTizjw7uRKVG-_0-110" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="YPKyjbTizjw7uRKVG-_0-22" source="YPKyjbTizjw7uRKVG-_0-114" target="YPKyjbTizjw7uRKVG-_0-122">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YPKyjbTizjw7uRKVG-_0-111" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="YPKyjbTizjw7uRKVG-_0-22" source="YPKyjbTizjw7uRKVG-_0-114" target="YPKyjbTizjw7uRKVG-_0-145">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YPKyjbTizjw7uRKVG-_0-112" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="YPKyjbTizjw7uRKVG-_0-22" source="YPKyjbTizjw7uRKVG-_0-114" target="YPKyjbTizjw7uRKVG-_0-123">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YPKyjbTizjw7uRKVG-_0-113" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="YPKyjbTizjw7uRKVG-_0-22" source="YPKyjbTizjw7uRKVG-_0-114" target="YPKyjbTizjw7uRKVG-_0-144">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YPKyjbTizjw7uRKVG-_0-114" value="test_multiple_connections" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" vertex="1" parent="YPKyjbTizjw7uRKVG-_0-22">
+          <mxGeometry x="180" y="987" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="YPKyjbTizjw7uRKVG-_0-115" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="YPKyjbTizjw7uRKVG-_0-22" source="YPKyjbTizjw7uRKVG-_0-119" target="YPKyjbTizjw7uRKVG-_0-120">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YPKyjbTizjw7uRKVG-_0-116" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="YPKyjbTizjw7uRKVG-_0-22" source="YPKyjbTizjw7uRKVG-_0-119" target="YPKyjbTizjw7uRKVG-_0-143">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YPKyjbTizjw7uRKVG-_0-117" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="YPKyjbTizjw7uRKVG-_0-22" source="YPKyjbTizjw7uRKVG-_0-119" target="YPKyjbTizjw7uRKVG-_0-142">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YPKyjbTizjw7uRKVG-_0-118" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="YPKyjbTizjw7uRKVG-_0-22" source="YPKyjbTizjw7uRKVG-_0-119" target="YPKyjbTizjw7uRKVG-_0-121">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YPKyjbTizjw7uRKVG-_0-119" value="test_latency_6dof" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" vertex="1" parent="YPKyjbTizjw7uRKVG-_0-22">
+          <mxGeometry x="190" y="680" width="150" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="YPKyjbTizjw7uRKVG-_0-120" value="&lt;div&gt;Action: Measure latency after sending 6DoF message&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="YPKyjbTizjw7uRKVG-_0-22">
+          <mxGeometry x="360" y="580" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YPKyjbTizjw7uRKVG-_0-121" value="&lt;div&gt;Assertion:&amp;nbsp;&lt;/div&gt;&lt;div&gt;Assert latency &amp;lt; 0.1s&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="YPKyjbTizjw7uRKVG-_0-22">
+          <mxGeometry x="360" y="650" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YPKyjbTizjw7uRKVG-_0-122" value="&lt;div&gt;Action: Open 10 simultaneous connections&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="YPKyjbTizjw7uRKVG-_0-22">
+          <mxGeometry x="360" y="850" width="140" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="YPKyjbTizjw7uRKVG-_0-123" value="&lt;div&gt;Assertion: Ensure all connections are open&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="YPKyjbTizjw7uRKVG-_0-22">
+          <mxGeometry x="360" y="940" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YPKyjbTizjw7uRKVG-_0-124" value="&lt;div&gt;Action: Send and receive 100 6DoF messages, calculate throughput&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="YPKyjbTizjw7uRKVG-_0-22">
+          <mxGeometry x="360" y="1170" width="140" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="YPKyjbTizjw7uRKVG-_0-125" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="YPKyjbTizjw7uRKVG-_0-22" source="YPKyjbTizjw7uRKVG-_0-129" target="YPKyjbTizjw7uRKVG-_0-124">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YPKyjbTizjw7uRKVG-_0-126" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="YPKyjbTizjw7uRKVG-_0-22" source="YPKyjbTizjw7uRKVG-_0-129" target="YPKyjbTizjw7uRKVG-_0-130">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YPKyjbTizjw7uRKVG-_0-127" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="YPKyjbTizjw7uRKVG-_0-22" source="YPKyjbTizjw7uRKVG-_0-129" target="YPKyjbTizjw7uRKVG-_0-131">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YPKyjbTizjw7uRKVG-_0-128" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="YPKyjbTizjw7uRKVG-_0-22" source="YPKyjbTizjw7uRKVG-_0-129" target="YPKyjbTizjw7uRKVG-_0-132">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YPKyjbTizjw7uRKVG-_0-129" value="test_throughput_6dof" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" vertex="1" parent="YPKyjbTizjw7uRKVG-_0-22">
+          <mxGeometry x="197" y="1290" width="143" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="YPKyjbTizjw7uRKVG-_0-130" value="&lt;div&gt;Assertion: Assert throughput &amp;gt; 30 messages/sec&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="YPKyjbTizjw7uRKVG-_0-22">
+          <mxGeometry x="360" y="1270" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YPKyjbTizjw7uRKVG-_0-131" value="&lt;div&gt;Edge Case: Throughput too low&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="YPKyjbTizjw7uRKVG-_0-22">
+          <mxGeometry x="360" y="1340" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="YPKyjbTizjw7uRKVG-_0-132" value="Failure Handling: Fail if throughput is below threshold" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="YPKyjbTizjw7uRKVG-_0-22">
+          <mxGeometry x="360" y="1420" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="YPKyjbTizjw7uRKVG-_0-133" value="&lt;div&gt;Assertion: Check if the response starts with Echo: and ends with 6DoF message.&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="YPKyjbTizjw7uRKVG-_0-22">
+          <mxGeometry x="360" y="360" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="YPKyjbTizjw7uRKVG-_0-134" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="YPKyjbTizjw7uRKVG-_0-22" source="YPKyjbTizjw7uRKVG-_0-138" target="YPKyjbTizjw7uRKVG-_0-140">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YPKyjbTizjw7uRKVG-_0-135" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="YPKyjbTizjw7uRKVG-_0-22" source="YPKyjbTizjw7uRKVG-_0-138" target="YPKyjbTizjw7uRKVG-_0-133">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YPKyjbTizjw7uRKVG-_0-136" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="YPKyjbTizjw7uRKVG-_0-22" source="YPKyjbTizjw7uRKVG-_0-138" target="YPKyjbTizjw7uRKVG-_0-141">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YPKyjbTizjw7uRKVG-_0-137" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="YPKyjbTizjw7uRKVG-_0-22" source="YPKyjbTizjw7uRKVG-_0-138" target="YPKyjbTizjw7uRKVG-_0-139">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YPKyjbTizjw7uRKVG-_0-138" value="test_message_format_6dof" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" vertex="1" parent="YPKyjbTizjw7uRKVG-_0-22">
+          <mxGeometry x="180" y="410" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="YPKyjbTizjw7uRKVG-_0-139" value="&lt;div&gt;Failure Handling: Fail if message format is incorrect.&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="YPKyjbTizjw7uRKVG-_0-22">
+          <mxGeometry x="360" y="510" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YPKyjbTizjw7uRKVG-_0-140" value="&lt;div&gt;Action: Send and verify 6DoF message format&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="YPKyjbTizjw7uRKVG-_0-22">
+          <mxGeometry x="360" y="280" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="YPKyjbTizjw7uRKVG-_0-141" value="&lt;div&gt;Edge Case: Response format mismatch&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="YPKyjbTizjw7uRKVG-_0-22">
+          <mxGeometry x="360" y="440" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YPKyjbTizjw7uRKVG-_0-142" value="&lt;div&gt;Edge Case: High latency&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="YPKyjbTizjw7uRKVG-_0-22">
+          <mxGeometry x="360" y="720" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="YPKyjbTizjw7uRKVG-_0-143" value="&lt;div&gt;Failure Handling: Fail if latency exceeds threshold&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="YPKyjbTizjw7uRKVG-_0-22">
+          <mxGeometry x="360" y="770" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="YPKyjbTizjw7uRKVG-_0-144" value="&lt;div&gt;Edge Case: Failure to open a connection&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="YPKyjbTizjw7uRKVG-_0-22">
+          <mxGeometry x="360" y="1007" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="YPKyjbTizjw7uRKVG-_0-145" value="&lt;div&gt;Failure Handling: Fail if any connection fails&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="YPKyjbTizjw7uRKVG-_0-22">
+          <mxGeometry x="360" y="1090" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="YPKyjbTizjw7uRKVG-_0-14" value="TestServer" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="YPKyjbTizjw7uRKVG-_0-22">
+          <mxGeometry x="10" y="670" width="170" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
