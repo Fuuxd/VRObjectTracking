@@ -12,20 +12,22 @@ public class WebSocketClient : MonoBehaviour
     // Kalman filter for smoothing position updates
     private KalmanFilterVector3 kalmanFilter;
     private Vector3 userPosition;
+    private Quaternion userRotation;
     private Vector3 offset = Vector3.zero;
     private string serverUrl = "ws://192.168.0.216:8080";
     private string logFilePath = "position_log.txt";
     private GameObject box;
     private GameObject user;
-    private GameObject bowl;
+    private GameObject box2;
     private long milliseconds;
 
     // Sliding window for position smoothing (holds last 12 position updates)
-    private Queue<Vector3> positionQueue = new Queue<Vector3>();
+    private Queue<Vector3> position1Queue = new Queue<Vector3>();
     private const int MaxQueueSize = 12;
+    private Queue<Vector3> position2Queue = new Queue<Vector3>();
 
     // Sliding window for rotation smoothing (holds last 12 rotation updates)
-    private Queue<Vector3> rotationQueue = new Queue<Vector3>();
+    //private Queue<Vector3> rotationQueue = new Queue<Vector3>();
     
     async void Start()
     {
@@ -40,14 +42,19 @@ public class WebSocketClient : MonoBehaviour
         {
             Debug.LogError("player not found in the scene. Please check the object name.");
         }
-        bowl = GameObject.Find("bowl");
-        if (bowl == null)
+        box2 = GameObject.Find("BOX2");
+        if (box2 == null)
         {
             Debug.LogError("bowl not found in the scene. Please check the object name.");
         }
 
         // Initialize the Kalman filter
         kalmanFilter = new KalmanFilterVector3();
+
+        offset.x = -0.20f;
+        offset.y = -1.36144f;
+        offset.z = 0.6f;
+
         await ConnectToServer();
     }
 
@@ -81,6 +88,10 @@ public class WebSocketClient : MonoBehaviour
         await ws.Connect();
     }
 
+    // Define a buffer to hold the last 10 IDs for each object (IDs 2-7)
+    private Dictionary<int, Queue<int>> idBuffers = new Dictionary<int, Queue<int>>();
+    private const int ConsecutiveThreshold = 20; // Number of consecutive sightings required to switch to the new ID
+
     private readonly object lockObject = new object();
     void ParseMessage(string message)
     {
@@ -96,59 +107,109 @@ public class WebSocketClient : MonoBehaviour
                 float x = float.Parse(components[1].Split(':')[1]);
                 float y = float.Parse(components[2].Split(':')[1]);
                 float z = float.Parse(components[3].Split(':')[1]);
-                float rx = float.Parse(components[3].Split(':')[1]);
-                float ry = float.Parse(components[4].Split(':')[1]);
-                float rz = float.Parse(components[5].Split(':')[1]);
+                float rx = float.Parse(components[4].Split(':')[1]);
+                float ry = float.Parse(components[5].Split(':')[1]);
+                float rz = float.Parse(components[6].Split(':')[1]);
+                float rw = float.Parse(components[7].Split(':')[1]);
 
                 Vector3 position = new Vector3(x, y, z);
-                Vector3 rotation = new Vector3(rx, ry, rz);
-
-                // Sliding window filter for position (store and average last 12 positions)
-                if (positionQueue.Count >= MaxQueueSize)
-                {
-                    positionQueue.Dequeue(); // Remove the oldest value
-                }
-                positionQueue.Enqueue(position); // Add the new position
-
-                // Calculate the average position from the sliding window
-                Vector3 averagePosition = CalculateAveragePosition(positionQueue);
+                Quaternion rotation = new Quaternion(rx, ry, rz, rw);
+                
 
                 // Sliding window filter for rotation (store and average last 12 rotations)
-                if (rotationQueue.Count >= MaxQueueSize)
+                /*if (rotationQueue.Count >= MaxQueueSize)
                 {
                     rotationQueue.Dequeue(); // Remove the oldest value
                 }
                 rotationQueue.Enqueue(rotation); // Add the new rotation
 
                 // Calculate the average rotation from the sliding window
-                Vector3 averageRotation = CalculateAveragePosition(rotationQueue);
+                Vector3 averageRotation = CalculateAveragePosition(rotationQueue);*/
 
                 if (id == 0) // 0 == user
                 {
                     // Find offset between real-world position and Unity camera position
                     Vector3 cameraPosition = Camera.main.transform.position;
-                    offset = position - cameraPosition;
+                    //offset = position - cameraPosition;
+
+                    userRotation = rotation;
 
                     Debug.Log($"User Position: {position}, Camera Position: {cameraPosition}, Offset: {offset}");
                 }
                 else if (id == 1) // 1 == box
                 {
-                    Vector3 truePosition = averagePosition - offset;
-                    UpdateObjectPosition(truePosition, averageRotation, box);
-                }
-                else if (id >= 2 && id <= 7 && ry >= 0)
+                    // Sliding window filter for position (store and average last 12 positions)
+                if (position1Queue.Count >= MaxQueueSize)
                 {
-                    Vector3 truePosition = averagePosition - offset;
-
-                    int trackerIndex = id - 2;
-                    Quaternion cubeRotation = CalculateCubeRotation(trackerIndex, averageRotation);
-
-                    box.transform.position = truePosition;
-                    box.transform.rotation = cubeRotation;
-
-                    Debug.Log($"ID: {id}");
-                    Debug.Log($"Updated BOX1 to rotation: {cubeRotation.eulerAngles}");
+                    position1Queue.Dequeue(); // Remove the oldest value
                 }
+                position1Queue.Enqueue(position); // Add the new position
+
+                // Calculate the average position from the sliding window
+                Vector3 averagePosition = CalculateAveragePosition(position1Queue);
+
+                    Vector3 truePosition = averagePosition - offset;
+                    //Vector3 filteredPosition = kalmanFilter.Update(truePosition, newQ: 0.05f, newR: 0.005f);
+                    //Quaternion offsetRotation = rotation * Quaternion.Inverse(userRotation);
+                    UpdateObjectPosition(truePosition, rotation, box);
+                }
+                else if (id == 2){
+                    // Sliding window filter for position (store and average last 12 positions)
+                if (position2Queue.Count >= MaxQueueSize)
+                {
+                    position2Queue.Dequeue(); // Remove the oldest value
+                }
+                position2Queue.Enqueue(position); // Add the new position
+
+                // Calculate the average position from the sliding window
+                Vector3 averagePosition = CalculateAveragePosition(position2Queue);
+
+                    Vector3 truePosition = averagePosition - offset;
+                    //Vector3 filteredPosition = kalmanFilter.Update(truePosition, newQ: 0.05f, newR: 0.005f);
+                    //Quaternion offsetRotation = rotation * Quaternion.Inverse(userRotation);
+                    UpdateObjectPosition(truePosition, rotation, box2);
+                }
+                    else if (id >= 3 && id <= 7) // For IDs 2-7 (trackable objects)
+            {
+                // Check if we have an existing buffer for this ID
+                if (!idBuffers.ContainsKey(id))
+                {
+                    idBuffers[id] = new Queue<int>(new int[ConsecutiveThreshold]); // Initialize with a buffer of size 10
+                }
+
+                // Update the buffer with the current ID
+                idBuffers[id].Enqueue(id);
+                if (idBuffers[id].Count > ConsecutiveThreshold)
+                {
+                    idBuffers[id].Dequeue(); // Remove the oldest ID to maintain the buffer size
+                }
+
+                // Check if the ID has been consistently seen in the last 10 messages
+                int consecutiveCount = 0;
+                foreach (var bufferedId in idBuffers[id])
+                {
+                    if (bufferedId == id)
+                    {
+                        consecutiveCount++;
+                    }
+                }
+
+                if (consecutiveCount >= ConsecutiveThreshold)
+                {
+                    // Switch to the new ID
+                    Vector3 truePosition = position + offset;
+                    int trackerIndex = id - 2;
+                    Quaternion cubeRotation = CalculateCubeRotation(trackerIndex, rotation);
+
+                    // Update the object with the true position and calculated rotation
+                    UpdateObjectPosition(truePosition, rotation, box);
+                    Debug.Log($"ID: {id} switched after {ConsecutiveThreshold} consecutive sightings.");
+                }
+                else
+                {
+                    Debug.Log($"ID: {id} not switched yet, only {consecutiveCount} consecutive sightings.");
+                }
+            }
                 else
                 {
                     Debug.Log($"Received message for ID {id}, but this object is not assigned to this ID.");
@@ -176,53 +237,69 @@ public class WebSocketClient : MonoBehaviour
         return sum / queue.Count;
     }
 
-    /// <summary>
-    /// Handles multiple arUco ids on a single cube, assumes the following indexes are placed
-    /// in the following order 0 = Front, 1 = Back, 2 = Top, 3 = Bottom, 4 = Left, 5= Right
-    /// </summary>
-    /// <param name="trackerIndex"> integer between 0-6 </param>
-    /// <param name="rotation"> Vector3 with rotation of trackerIndex as given by </param>
-    /// <returns></returns>
-    Quaternion CalculateCubeRotation(int trackerIndex, Vector3 rotation)
+/// <summary>
+/// Handles multiple ArUco IDs on a single cube, assumes the following indexes are placed
+/// in the following order: 0 = Front, 1 = Back, 2 = Top, 3 = Bottom, 4 = Left, 5 = Right
+/// </summary>
+/// <param name="trackerIndex">Integer between 0-5.</param>
+/// <param name="rotation">Quaternion representing the rotation of the trackerIndex.</param>
+/// <returns>Adjusted Quaternion for the cube's rotation.</returns>
+Quaternion CalculateCubeRotation(int trackerIndex, Quaternion rotation)
+{
+    // Define the adjustment rotations as quaternions
+    Quaternion adjustment = Quaternion.identity; // Default is no adjustment
+ 
+    switch (trackerIndex)
     {
-        switch (trackerIndex)
-        {
         case 0:
-            // Do nothing
+            // No adjustment needed for the front face
+            adjustment = Quaternion.identity;
             break;
-        
+ 
         case 1:
-            rotation.y = rotation.y + 180;
+            // Rotate around the Y-axis by 180 degrees (flip front to back)
+            adjustment = Quaternion.AngleAxis(180, Vector3.up);
             break;
-
+ 
         case 2:
-            rotation.x = rotation.x + 90;
+            // Rotate around the X-axis by 90 degrees (top face)
+            adjustment = Quaternion.AngleAxis(90, Vector3.right);
             break;
-
+ 
         case 3:
-            rotation.x = rotation.x + 90;
+            // Rotate around the X-axis by -90 degrees (bottom face)
+            adjustment = Quaternion.AngleAxis(-90, Vector3.right);
             break;
-
+ 
         case 4:
-            rotation.y = rotation.y - 90;
+            // Rotate around the Y-axis by -90 degrees (left face)
+            adjustment = Quaternion.AngleAxis(-90, Vector3.up);
             break;
-
+ 
         case 5:
-            rotation.y = rotation.y - 90;
-            break; 
+            // Rotate around the Y-axis by 90 degrees (right face)
+            adjustment = Quaternion.AngleAxis(90, Vector3.up);
+            break;
+ 
         default:
             Debug.LogError("Invalid trackerIndex sent to CalculateCubeRotation.");
             break;
-        }
-
-        return Quaternion.Euler(rotation);
     }
+ 
+    // Combine the adjustment quaternion with the input rotation quaternion
+    return adjustment * rotation;
+}
 
-    void UpdateObjectPosition(Vector3 position, Vector3 rotation, GameObject obj)
+
+    void UpdateObjectPosition(Vector3 position, Quaternion rotation, GameObject obj)
     {
         // Apply the new position directly to the object
         obj.transform.position = position;
-        obj.transform.rotation = Quaternion.Euler(rotation); // Use rotation here
+        //obj.transform.rotation = Quaternion.Slerp(obj.transform.rotation, rotation.normalized, Time.deltaTime * 5.0f); // Use rotation here
+        Vector3 eulerAngs = rotation.eulerAngles;
+        eulerAngs.z = -eulerAngs.z;
+        Quaternion fixedrotation = Quaternion.Euler(eulerAngs);
+        obj.transform.rotation = fixedrotation;
         milliseconds = DateTimeOffset.Now.ToUnixTimeMilliseconds();
         Debug.Log($"Time: {milliseconds}, Object {obj.gameObject.name} updated to position: {obj.transform.position} and rotation: {obj.transform.rotation}");
     }
