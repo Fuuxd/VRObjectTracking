@@ -62,7 +62,7 @@ async def websocket_server():
             while True:
                 if not tracking_queue.empty():
                     data = tracking_queue.get()
-                    message = f"id:{data['id']},x:{data['x']:.6f},y:{data['y']:.6f},z:{data['z']:.6f},rx:{data['rx']:.6f},ry:{data['ry']:.6f},rz:{data['rz']:.6f}"
+                    message = f"id:{data['id']},x:{data['x']:.6f},y:{data['y']:.6f},z:{data['z']:.6f},rx:{data['rx']:.6f},ry:{data['ry']:.6f},rz:{data['rz']:.6f},rw:{data['rw']:.6f}"
                     print(f"Sending: {message}")
                     await websocket.send(message)
         except websockets.exceptions.ConnectionClosed:
@@ -120,7 +120,9 @@ def main():
                 # Convert rotation vector to euler angles
                 rot_matrix = cv2.Rodrigues(rvec)[0]
                 r = Rotation.from_matrix(rot_matrix)
-                euler_angles = r.as_euler('xyz', degrees=True)
+
+                # Convert rotation matrix to quaternion
+                quaternion = r.as_quat()  # Returns [x, y, z, w]
                 
                 # Get marker position
                 roi = corners[i][0]
@@ -147,9 +149,10 @@ def main():
                     'x': marker_position[0],
                     'y': marker_position[1],
                     'z': marker_position[2],
-                    'rx': euler_angles[0],
-                    'ry': euler_angles[1],
-                    'rz': euler_angles[2]
+                    'rx': quaternion[0],  # Quaternion x
+                    'ry': quaternion[1],  # Quaternion y
+                    'rz': quaternion[2],  # Quaternion z
+                    'rw': quaternion[3]   # Quaternion w
                 }
                 tracking_queue.put(tracking_data)
                 
@@ -160,9 +163,6 @@ def main():
                            cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
                 cv2.putText(frame, f"Pos: {marker_position[0]:.2f}, {marker_position[1]:.2f}, {marker_position[2]:.2f}", 
                            (text_position[0], text_position[1] - 40),
-                           cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
-                cv2.putText(frame, f"Rot: {euler_angles[0]:.1f}, {euler_angles[1]:.1f}, {euler_angles[2]:.1f}", 
-                           (text_position[0], text_position[1] - 20),
                            cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
         
         # Show the frame
